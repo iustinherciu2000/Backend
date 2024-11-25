@@ -18,7 +18,7 @@ app.use(
 
 app.get("/api/data", async(req, res) =>{
     const {begin_date} = req.query;
-    const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=${begin_date}&api-key=${apiKey}`);
+    const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=${begin_date}&api-key=${process.env.NYT_API_KEY}`);
     const data = await response.json();
     res.json(data)
 })
